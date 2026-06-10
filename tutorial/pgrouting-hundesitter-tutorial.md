@@ -29,6 +29,8 @@ In dieser Übung löst ihr ein **Traveling Salesman Problem (TSP)** mit pgroutin
 
 Im linken Panel unter **Servers** seht ihr dann den verbundenen Server. Klickt auf ihn und navigiert zu eurer Datenbank.
 
+<img width="1154" height="573" alt="image" src="https://github.com/user-attachments/assets/e7d1d073-62be-49e1-94d7-5a8d8a47d0d0" />
+
 ---
 
 ## 2. Datenbank einspielen
