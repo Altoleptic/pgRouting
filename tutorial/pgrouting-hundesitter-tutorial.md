@@ -1,3 +1,32 @@
+---
+title: pgRouting Hundesitter Tutorial
+lang: de
+header-includes: |
+  <style>
+    body {
+      max-width: 900px;
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+    }
+    html {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    code {
+      background-color: #2d2d2d;
+      color: #ce9178;
+    }
+    pre {
+      background-color: #2d2d2d;
+    }
+    a { color: #4ec9b0; }
+  </style>
+---
+
 # pgrouting Hundesitter Tutorial
 
 ## Einleitung
