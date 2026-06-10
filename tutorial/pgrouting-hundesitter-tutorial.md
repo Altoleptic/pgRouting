@@ -223,42 +223,12 @@ Um die Hunde auch wieder abzuliefern, führen wir `pgr_TSP` zweimal aus – einm
 
 ```sql
 SELECT 'Hinweg' AS richtung, seq, node, cost, agg_cost
-FROM pgr_TSP(
-  $$SELECT * FROM pgr_dijkstraCostMatrix(
-    'SELECT gid AS id, source, target,
-     ways.length_m / 1000.0 / ▯ * 60.0 AS cost,
-     CASE WHEN ways.reverse_cost > 0
-       THEN ways.length_m / 1000.0 / ▯ * 60.0
-       ELSE -1
-     END AS reverse_cost
-     FROM ways',
-    ARRAY(SELECT node_id FROM halter
-      WHERE id = ANY(ARRAY[▯, ▯, ▯, ▯, ▯, ▯])),
-    directed := true
-  )$$,
-  start_id := (SELECT node_id FROM halter WHERE id = ▯),
-  end_id := (SELECT node_id FROM halter WHERE id = ▯)
-)
+FROM tsp(ARRAY[▯, ▯, ▯, ▯, ▯, ▯], ▯, ▯)
 
 UNION ALL
 
 SELECT 'Rückweg' AS richtung, seq, node, cost, agg_cost
-FROM pgr_TSP(
-  $$SELECT * FROM pgr_dijkstraCostMatrix(
-    'SELECT gid AS id, source, target,
-     ways.length_m / 1000.0 / ▯ * 60.0 AS cost,
-     CASE WHEN ways.reverse_cost > 0
-       THEN ways.length_m / 1000.0 / ▯ * 60.0
-       ELSE -1
-     END AS reverse_cost
-     FROM ways',
-    ARRAY(SELECT node_id FROM halter
-      WHERE id = ANY(ARRAY[▯, ▯, ▯, ▯, ▯, ▯])),
-    directed := true
-  )$$,
-  start_id := (SELECT node_id FROM halter WHERE id = ▯),
-  end_id := (SELECT node_id FROM halter WHERE id = ▯)
-)
+FROM tsp(ARRAY[▯, ▯, ▯, ▯, ▯, ▯], ▯, ▯)
 
 ORDER BY richtung, seq;
 ```
