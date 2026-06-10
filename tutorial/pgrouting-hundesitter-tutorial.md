@@ -3,12 +3,14 @@ title: pgRouting Hundesitter Tutorial
 lang: de
 header-includes: |
   <style>
-    body {
-      max-width: 900px;
+    html {
       background-color: #1e1e1e;
       color: #d4d4d4;
     }
-    html {
+    body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 50px;
       background-color: #1e1e1e;
       color: #d4d4d4;
     }
@@ -16,15 +18,71 @@ header-includes: |
       max-width: 100%;
       height: auto;
     }
+    pre {
+      background-color: #2d2d2d;
+      padding: 16px;
+      border-radius: 6px;
+      position: relative;
+      overflow-x: auto;
+    }
     code {
       background-color: #2d2d2d;
       color: #ce9178;
     }
-    pre {
+    pre code {
+      color: #d4d4d4;
+    }
+    a {
+      color: #4ec9b0;
+    }
+    h1, h2, h3 {
+      color: #9cdcfe;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #555;
+      padding: 8px 12px;
+    }
+    th {
       background-color: #2d2d2d;
     }
-    a { color: #4ec9b0; }
+    .copy-btn {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: #3a3a3a;
+      color: #d4d4d4;
+      border: 1px solid #555;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.75em;
+      cursor: pointer;
+    }
+    .copy-btn:hover { background: #555; }
+    .copy-btn.copied { color: #4ec9b0; }
   </style>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('pre').forEach(function(pre) {
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', function() {
+        navigator.clipboard.writeText(pre.querySelector('code').innerText);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+      pre.appendChild(btn);
+    });
+  });
+  </script>
 ---
 
 # pgrouting Hundesitter Tutorial
